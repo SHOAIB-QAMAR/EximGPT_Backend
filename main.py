@@ -63,6 +63,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Root endpoint
+@app.get("/")
+async def root():
+    """Root endpoint."""
+    return {"message": "EximGPT Backend API", "status": "running"}
+
+# Health check endpoint
+@app.get("/health")
+async def health_check():
+    """Health check endpoint."""
+    return {"status": "healthy", "timestamp": datetime.datetime.utcnow().isoformat()}
+
 # Serve uploaded files as static
 app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
 
