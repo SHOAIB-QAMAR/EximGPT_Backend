@@ -1,8 +1,9 @@
 fastapi
-uvicorn
+uvicorn[standard]
 motor
 python-dotenv
 google-generativeai
 httpx
 Pillow
 python-multipart
+websockets
